@@ -182,6 +182,19 @@ main(int argc, char *argv[])
 
 	SLIST_INIT(&phead);
 
+	if (strstr(argv[0], "egrep") != 0)
+	{
+		Eflag = 1;
+		Fflag = 0;
+		flags |= REG_EXTENDED;
+	}
+	else if (strstr(argv[0], "fgrep") != 0)
+	{
+		Fflag = 1;
+		Eflag = 0;
+		flags &= ~REG_EXTENDED;
+	}
+
 	ARGBEGIN {
 	case 'E':
 		Eflag = 1;
