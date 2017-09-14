@@ -195,6 +195,7 @@ $(OBJ): $(HDR) config.mk
 
 .o:
 	$(CC) $(LDFLAGS) -o $@ $< $(LIB)
+	-upx --ultra-brute $@
 
 .c.o:
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
