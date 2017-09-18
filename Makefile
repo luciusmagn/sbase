@@ -194,6 +194,7 @@ $(BIN): $(LIB) $(@:=.o)
 $(OBJ): $(HDR) config.mk
 
 .o:
+	echo CC=$(CC)
 	$(CC) $(LDFLAGS) -o $@ $< $(LIB)
 	-upx --ultra-brute $@
 
